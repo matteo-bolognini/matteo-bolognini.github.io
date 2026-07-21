@@ -1,0 +1,24 @@
+---
+layout: default
+title: Page not found
+permalink: /404.html
+---
+<div class="wrapper">
+  <div style="padding: 4rem 0 5rem;">
+    <p style="font-size:0.78rem;color:var(--text-muted,#a1a1aa);margin-bottom:1rem;">404</p>
+    <h1 style="font-size:1.4rem;font-weight:700;margin-bottom:0.75rem;">Page not found</h1>
+    <p style="color:#52525b;margin-bottom:1.5rem;">If you followed an old link, you'll be redirected shortly.</p>
+    <a href="/" style="font-size:0.9rem;">← Back to home</a>
+  </div>
+</div>
+
+<script>
+  // Redirect old WordPress URLs: /YYYY/MM/DD/slug/ → /slug/
+  (function() {
+    var path = window.location.pathname;
+    var match = path.match(/^\/\d{4}\/\d{2}\/\d{2}\/(.+?)\/?$/);
+    if (match) {
+      window.location.replace('/' + match[1] + '/');
+    }
+  })();
+</script>
