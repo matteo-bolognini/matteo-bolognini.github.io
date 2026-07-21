@@ -9,7 +9,11 @@ permalink: /about/
     <div class="about-body">
       <p>
         I'm Matteo Bolognini, a security researcher and Apple platform engineer based in London.
-        I work on macOS security, threat detection, and automation — currently at Jamf on the Beacon Threat Labs team.
+        Born and raised in Italy, I now spend my days breaking things on macOS so others don't have to.
+      </p>
+      <p>
+        I work as Senior Threat and Detections Researcher at Jamf Threat Labs, focusing on macOS security,
+        threat detection, and automation.
       </p>
       <p>
         This site is where I write up things I've been tinkering with: Jamf Pro and Protect configurations,

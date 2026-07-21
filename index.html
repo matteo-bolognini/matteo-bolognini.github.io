@@ -4,21 +4,24 @@ title: Writing
 ---
 <div class="wrapper">
   <div class="home-intro">
-    <h1>Notes on Apple platform management & security</h1>
-    <p>Practical write-ups on macOS, Jamf, automation, and security — by Matteo Bolognini.</p>
+    <h1>Writing</h1>
+    <p>macOS security research and tinkering — by Matteo Bolognini.</p>
   </div>
 
-  <p class="posts-label">All posts</p>
-
-  <ul class="post-list">
-    {% assign sorted_posts = site.posts | sort: 'date' | reverse %}
-    {% for post in sorted_posts %}
-    <li class="post-item">
-      <a href="{{ post.url | relative_url }}">
-        <span class="post-title">{{ post.title }}</span>
-        <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
-      </a>
-    </li>
-    {% endfor %}
-  </ul>
+  {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+  {% for year in postsByYear %}
+  <div class="year-group">
+    <p class="posts-label">{{ year.name }}</p>
+    <ul class="post-list">
+      {% for post in year.items %}
+      <li class="post-item">
+        <a href="{{ post.url | relative_url }}">
+          <span class="post-title">{{ post.title }}</span>
+          <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endfor %}
 </div>
