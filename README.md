@@ -1,6 +1,6 @@
 # skartek.dev
 
-Personal site built with Jekyll, hosted on GitHub Pages.
+Personal website of Matteo Bolognini, built with [Jekyll](https://jekyllrb.com) and hosted on [GitHub Pages](https://pages.github.com).
 
 ## Local development
 
@@ -9,12 +9,4 @@ bundle install
 bundle exec jekyll serve
 ```
 
-Then open http://localhost:4000.
-
-## Structure
-
-- `_posts/` — all writing, in `YYYY-MM-DD-slug.md` format
-- `_layouts/` — page templates
-- `_sass/` — styles
-- `about.md` — about page
-- `CNAME` — custom domain config
+Open http://localhost:4000.
