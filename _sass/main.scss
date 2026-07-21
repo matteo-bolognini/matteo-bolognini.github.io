@@ -1,0 +1,420 @@
+// ── Tokens ────────────────────────────────────────────────────────────────────
+$white:       #ffffff;
+$bg:          #fafafa;
+$surface:     #f4f4f5;
+$border:      #e4e4e7;
+$border-mid:  #d1d5db;
+$text:        #18181b;
+$text-mid:    #52525b;
+$text-muted:  #a1a1aa;
+$code-bg:     #f1f1f3;
+
+$font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+$font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, 'SF Mono', monospace;
+
+$max-w: 680px;
+$max-w-wide: 900px;
+
+// ── Reset ─────────────────────────────────────────────────────────────────────
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: $bg;
+  color: $text;
+  font-family: $font-sans;
+  line-height: 1.75;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main { flex: 1; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+a {
+  color: $text;
+  text-decoration: underline;
+  text-decoration-color: $border-mid;
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.15s;
+
+  &:hover {
+    text-decoration-color: $text-mid;
+  }
+}
+
+// ── Wrapper ───────────────────────────────────────────────────────────────────
+.wrapper {
+  max-width: $max-w;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  width: 100%;
+}
+
+// ── Header ────────────────────────────────────────────────────────────────────
+.site-header {
+  background: $white;
+  border-bottom: 1px solid $border;
+  padding: 0;
+
+  .header-inner {
+    max-width: $max-w-wide;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 3.25rem;
+  }
+
+  .site-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: $text;
+    text-decoration: none;
+
+    &:hover { text-decoration: none; color: $text-mid; }
+  }
+
+  nav {
+    display: flex;
+    gap: 1.75rem;
+
+    a {
+      font-size: 0.85rem;
+      color: $text-mid;
+      text-decoration: none;
+      font-weight: 450;
+
+      &:hover { color: $text; }
+      &.active { color: $text; font-weight: 500; }
+    }
+  }
+}
+
+// ── Home ──────────────────────────────────────────────────────────────────────
+.home-intro {
+  padding: 3.5rem 0 2.5rem;
+  border-bottom: 1px solid $border;
+  margin-bottom: 2.5rem;
+
+  h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: $text;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: $text-mid;
+    max-width: 480px;
+    line-height: 1.65;
+  }
+}
+
+.posts-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $text-muted;
+  margin-bottom: 1rem;
+}
+
+.post-list {
+  list-style: none;
+  border-top: 1px solid $border;
+}
+
+.post-item {
+  border-bottom: 1px solid $border;
+
+  a {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1.5rem;
+    padding: 0.9rem 0;
+    text-decoration: none;
+    color: $text;
+
+    &:hover .post-title { color: $text-mid; }
+  }
+
+  .post-title {
+    font-size: 0.95rem;
+    font-weight: 450;
+    line-height: 1.45;
+    transition: color 0.15s;
+  }
+
+  .post-date {
+    font-size: 0.78rem;
+    color: $text-muted;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+  }
+}
+
+// ── Post ──────────────────────────────────────────────────────────────────────
+.post-header {
+  padding: 3rem 0 2rem;
+
+  .post-eyebrow {
+    font-size: 0.78rem;
+    color: $text-muted;
+    margin-bottom: 0.75rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  h1 {
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.25;
+    color: $text;
+  }
+}
+
+.post-divider {
+  border: none;
+  border-top: 1px solid $border;
+  margin: 0 0 2.5rem;
+}
+
+// ── Prose ─────────────────────────────────────────────────────────────────────
+.prose {
+  padding-bottom: 5rem;
+  font-size: 1rem;
+  line-height: 1.8;
+
+  > * + * { margin-top: 1.25rem; }
+
+  h2 {
+    font-size: 1.15rem;
+    font-weight: 650;
+    letter-spacing: -0.015em;
+    color: $text;
+    margin-top: 2.5rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid $border;
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: $text;
+    margin-top: 2rem;
+    margin-bottom: 0.4rem;
+  }
+
+  h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: $text-mid;
+    margin-top: 1.5rem;
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  p { color: $text; }
+
+  a {
+    color: $text;
+    text-decoration: underline;
+    text-decoration-color: $border-mid;
+    text-underline-offset: 3px;
+    &:hover { text-decoration-color: $text; }
+  }
+
+  strong { font-weight: 650; color: $text; }
+  em { font-style: italic; }
+
+  ul, ol {
+    padding-left: 1.5rem;
+    li { margin-bottom: 0.3rem; }
+  }
+
+  blockquote {
+    border-left: 2px solid $border-mid;
+    padding-left: 1.2rem;
+    color: $text-mid;
+    font-style: italic;
+    margin: 1.5rem 0;
+  }
+
+  img {
+    border-radius: 6px;
+    border: 1px solid $border;
+    margin: 2rem auto;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid $border;
+    margin: 2.5rem 0;
+  }
+
+  // Inline code
+  code {
+    font-family: $font-mono;
+    font-size: 0.82em;
+    background: $code-bg;
+    color: $text;
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+    border: 1px solid $border;
+  }
+
+  // Block code
+  pre {
+    background: $surface;
+    border: 1px solid $border;
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    overflow-x: auto;
+    margin: 1.75rem 0;
+    -webkit-overflow-scrolling: touch;
+
+    code {
+      background: none;
+      border: none;
+      padding: 0;
+      font-size: 0.82rem;
+      line-height: 1.65;
+      color: $text;
+    }
+  }
+
+  // Syntax highlight (light)
+  .highlight {
+    .c, .c1, .cm  { color: $text-muted; font-style: italic; }
+    .k, .kd       { color: #1a1a2e; font-weight: 600; }
+    .s, .s1, .s2  { color: #3d3d3d; }
+    .nf            { color: #1a1a2e; }
+    .mi            { color: $text-mid; }
+    .nt            { color: $text; font-weight: 600; }
+  }
+}
+
+// ── About ─────────────────────────────────────────────────────────────────────
+.about-page {
+  padding: 3rem 0 5rem;
+
+  h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    margin-bottom: 2rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid $border;
+  }
+
+  .about-body {
+    max-width: $max-w;
+
+    p {
+      color: $text;
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+    }
+
+    h2 {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: $text-muted;
+      margin: 2.5rem 0 0.75rem;
+    }
+  }
+
+  .tag-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .tag {
+    font-size: 0.78rem;
+    padding: 0.25rem 0.7rem;
+    border-radius: 999px;
+    background: $surface;
+    border: 1px solid $border;
+    color: $text-mid;
+  }
+
+  .link-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+
+    a {
+      font-size: 0.85rem;
+      color: $text-mid;
+      text-decoration: none;
+      padding: 0.4rem 0.9rem;
+      border: 1px solid $border;
+      border-radius: 6px;
+      background: $white;
+      transition: border-color 0.15s, color 0.15s;
+
+      &:hover { color: $text; border-color: $border-mid; }
+    }
+  }
+}
+
+// ── Footer ────────────────────────────────────────────────────────────────────
+.site-footer {
+  border-top: 1px solid $border;
+  background: $white;
+
+  .footer-inner {
+    max-width: $max-w-wide;
+    margin: 0 auto;
+    padding: 1.25rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  span, a {
+    font-size: 0.78rem;
+    color: $text-muted;
+    text-decoration: none;
+  }
+
+  a:hover { color: $text-mid; }
+}
+
+// ── Mobile ────────────────────────────────────────────────────────────────────
+@media (max-width: 540px) {
+  html { font-size: 16px; }
+
+  .post-item a {
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .post-item .post-date { display: none; }
+
+  .site-header nav { gap: 1.25rem; }
+}

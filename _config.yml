@@ -1,0 +1,33 @@
+title: Skartek
+description: Notes on macOS, Apple platform management, and security — Matteo Bolognini
+url: "https://skartek.dev"
+baseurl: ""
+
+author:
+  name: Matteo Bolognini
+  github: matteo-bolognini
+
+permalink: /:slug/
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
