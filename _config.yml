@@ -24,6 +24,8 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
+  - vendor/
+  - .bundle/
 
 defaults:
   - scope:
